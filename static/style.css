@@ -1,0 +1,45 @@
+body {
+    font-family: 'Lato', 'sans-serif';
+}
+
+.content {
+    width: 100%;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.weatherForm {
+    width: 30%;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #64958f;
+    border-radius: 8px;
+}
+
+.weatherSubmit {
+    margin-top: 20px;
+}
+
+.weatherSubmit:hover {
+    cursor: pointer;
+}
+
+.weatherResults {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ffbb91;
+    border-radius: 8px;
+    font-family: 'Lato', 'sans-serif';
+}
+
+.returnButton {
+    margin-top: 20px;
+}

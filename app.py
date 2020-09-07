@@ -1,11 +1,11 @@
 #pip install requests
 import requests
 
-#pip install configparser
-# ^allows us to read config.ini
-import configparser
-
 from flask import Flask, render_template, request
+
+from dotenv import load_dotenv
+load_dotenv()
+import os
 
 app = Flask(__name__)
 
@@ -18,7 +18,7 @@ def render_results():
 
     zipcode = request.form['zipcode']
     api_key = get_api_key()
-
+    
     data = get_weather_results(zipcode, api_key)
 
     temp = "{0:.2f}".format(data["main"]["temp"])
@@ -29,16 +29,14 @@ def render_results():
     return render_template('results.html', location=location, temp=temp, feels_like=feels_like, weather=weather)
 
 def get_api_key():
-    config = configparser.ConfigParser()
-    config.read('config.ini')
-    return config['openweathermap']['api']
+    blah = os.environ['WEATHER_API_KEY']
+    return blah
 
 def get_weather_results(zipcode, api_key):
+    # api_url = "http://api.openweathermap.org/data/2.5/weather?zip=94110&units=imperial&appid=738162552cd43ec686ab6e741cfa8ff4"
     api_url = "http://api.openweathermap.org/data/2.5/weather?zip={}&units=imperial&appid={}".format(zipcode, api_key)
     result = requests.get(api_url)
     return result.json()
-
-# print(get_weather_results("94121", get_api_key()))
 
 if __name__ == '__main__':
     app.run() 

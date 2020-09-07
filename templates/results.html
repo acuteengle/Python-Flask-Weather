@@ -1,17 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Results Page</title>
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/results.css') }}">
-        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        <div id="weatherResults">
-            <h3>Weather in {{ location }}</h3>
-            <h2>{{ temp }}° F</h2>
-            <h3>{{ weather }}</h3>
-            <h4>Feels like: {{ feels_like }}° F</h4>
-        </div>
-    </body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="weatherResults">
+    <h3>Weather in {{ location }}</h3>
+    <h2>{{ temp }}° F</h2>
+    <h3>{{ weather }}</h3>
+    <h4>Feels like: {{ feels_like }}° F</h4>
+    <a href="{{ url_for('weather_dashboard') }}">
+        <button class="returnButton btn btn-secondary">Look up another zipcode</button>
+    </a>
+</div>
+
+{% endblock %}
