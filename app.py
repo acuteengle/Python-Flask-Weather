@@ -25,8 +25,10 @@ def render_results():
     feels_like = "{0:.2f}".format(data["main"]["feels_like"])
     weather = data["weather"][0]["main"]
     location = data["name"]
+    icon = data["weather"][0]["icon"]
+    image_url = "http://openweathermap.org/img/wn/{}@2x.png".format(icon)
 
-    return render_template('results.html', location=location, temp=temp, feels_like=feels_like, weather=weather)
+    return render_template('results.html', location=location, temp=temp, feels_like=feels_like, weather=weather, image_url=image_url)
 
 def get_api_key():
     blah = os.environ['WEATHER_API_KEY']

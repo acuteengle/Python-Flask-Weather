@@ -1,15 +1,16 @@
-{% extends "base.html" %}
-
-{% block content %}
+{% extends "base.html" %} {% block content %}
 
 <div class="weatherResults">
-    <h3>Weather in {{ location }}</h3>
-    <h2>{{ temp }}° F</h2>
-    <h3>{{ weather }}</h3>
-    <h4>Feels like: {{ feels_like }}° F</h4>
-    <a href="{{ url_for('weather_dashboard') }}">
-        <button class="returnButton btn btn-secondary">Look up another zipcode</button>
-    </a>
+  <h3>Weather in {{ location }}</h3>
+  <h2>{{ temp }}° F</h2>
+  <img src="{{ image_url }}" />
+  <h3>{{ weather }}</h3>
+  <h4>Feels like: {{ feels_like }}° F</h4>
+  <a href="{{ url_for('weather_dashboard') }}">
+    <button class="returnButton btn btn-secondary">
+      Look up another zipcode
+    </button>
+  </a>
 </div>
 
 {% endblock %}
